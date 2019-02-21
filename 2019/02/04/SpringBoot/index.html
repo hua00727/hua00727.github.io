@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SpringBoot,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SpringBoot​    从官网上来看，springboot的定位为：BuildAnything，旨在可以实现快速地启动和运行，以及最少量的Spring前期配置。 ​    教程地址：https://gitbook.cn/gitchat/column/5b3c9f35a3442272491a176a">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot">
+<meta property="og:url" content="http://yoursite.com/2019/02/04/SpringBoot/index.html">
+<meta property="og:site_name" content="英俊的人">
+<meta property="og:description" content="SpringBoot​    从官网上来看，springboot的定位为：BuildAnything，旨在可以实现快速地启动和运行，以及最少量的Spring前期配置。 ​    教程地址：https://gitbook.cn/gitchat/column/5b3c9f35a3442272491a176a">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-21T09:01:56.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot">
+<meta name="twitter:description" content="SpringBoot​    从官网上来看，springboot的定位为：BuildAnything，旨在可以实现快速地启动和运行，以及最少量的Spring前期配置。 ​    教程地址：https://gitbook.cn/gitchat/column/5b3c9f35a3442272491a176a">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/04/SpringBoot/">
+
+
+
+
+
+  <title>SpringBoot | 英俊的人</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">英俊的人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">从来都是这么英俊</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/04/SpringBoot/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Godf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="英俊的人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SpringBoot</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-04T10:18:39+08:00">
+                2019-02-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-21T17:01:56+08:00">
+                2019-02-21
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/04/SpringBoot/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/04/SpringBoot/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/04/SpringBoot/" class="leancloud_visitors" data-flag-title="SpringBoot">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><p>​    从官网上来看，springboot的定位为：BuildAnything，旨在可以实现快速地启动和运行，以及最少量的Spring前期配置。</p>
+<p>​    教程地址：<a href="https://gitbook.cn/gitchat/column/5b3c9f35a3442272491a176a" target="_blank" rel="noopener">https://gitbook.cn/gitchat/column/5b3c9f35a3442272491a176a</a></p>
+<a id="more"></a>
+<ul>
+<li><p>简化代码</p>
+<p>​    用传统的ssm创建web项目，需要的pom.xml中添加许多依赖，比如需要spring-webmvc、spring-tx、spring-jdbc等一系列依赖，才可以运行项目，导完依赖后，我们运行的时候，有可能也会出现各种各样缺少依赖，版本不对等问题，十分繁琐，而在springboot，会帮助开发者快速启动一个Web容器，在 Spring Boot 中，我们<strong>只需要在 POM 文件中添加一个 starter-web 依赖即可</strong>，进入该依赖，就可以发现这个依赖里面包含了上述的各种各样的依赖，很明显的简化了代码。</p>
+</li>
+</ul>
+<ul>
+<li><p>简化配置</p>
+<p>​    传统的spring有许多xml、annotation等配置，如果数量一多，维护困难，发生问题，更难解决，springboot更多地采用了java config的方式对spring进行配置，假设我新建了一个类，但我没有使用 @Service 注解，也就是说，它是个普通类，那么我们如何让它也成为一个 Bean 并让 Spring 管理它呢？只需要 @Configuration 和 @Bean 两个注解即可，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello Spring Boot!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TestService <span class="title">getTestService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TestService();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简化部署</p>
+<p>​    使用 Spring 完成开发，当我们部署项目时需先在服务器上部署 Tomcat ，然后把项目打成 War 包入到 Tomcat 里。而使用 Spring Boot 后，就不再需要在服务器上部署 Tomcat 了，因为 Spring Boot 内嵌了 Tomcat，我们<strong>只需将项目打成 Jar 包，使用 java -jar xxx.jar 一键式启动项目</strong>。</p>
+<p>​    另外，Spring Boot 也降低对运行环境的基本要求，环境变量中有 JDK 即可。</p>
+<p>…………</p>
+</li>
+</ul>
+<h2 id="SpringBoot工程"><a href="#SpringBoot工程" class="headerlink" title="SpringBoot工程"></a>SpringBoot工程</h2><h3 id="工程构建"><a href="#工程构建" class="headerlink" title="工程构建"></a>工程构建</h3><ol>
+<li><p>IDEA快速构建</p>
+<p>​    在 IDEA 中，我们可以<strong>依次选择 File -&gt; New -&gt; Project 快速构建 Spring Boot 工程</strong>。</p>
+</li>
+<li><p>官方构建</p>
+<p>访问<a href="http://start.spring.io，输入相应的group和artifact，选择所需要的依赖，springboot版本等信息，点击generate" target="_blank" rel="noopener">http://start.spring.io，输入相应的group和artifact，选择所需要的依赖，springboot版本等信息，点击generate</a> project即可构建完成。</p>
+</li>
+</ol>
+<h3 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h3><p>​    springboot项目总工有三个模块：</p>
+<ul>
+<li><p>src/main/java：编写业务逻辑</p>
+</li>
+<li><p>src/main/resources：存放静态文件和配置文件</p>
+</li>
+<li><p>src/test/java：编写测试逻辑</p>
+<p>在src/main/java里面有一个启动类（正常以Application结尾），如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SrpingBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestApplication</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SpringApplication.run(TestApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：@SpringBootApplication标识该类为启动类，启动类即一个程序的入口。其次，springboot内部集成了tomcat，不需要手动去配置。</p>
+<p>在src/main/resources里面有一个配置文件（application.properties或者application.yml后缀的文件），该文件用于springboot程序的配置，如下所示（例如：指定程序端口）:</p>
+<p><strong>application.properties</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.port=<span class="number">8080</span></span><br></pre></td></tr></table></figure>
+<p><strong>application.yml</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">8080</span></span><br></pre></td></tr></table></figure>
+<p>注：两种配置方式任选一种即可。</p>
+</li>
+</ul>
+<h2 id="运行工程"><a href="#运行工程" class="headerlink" title="运行工程"></a>运行工程</h2><ol>
+<li><p>创建controller类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/start"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StartController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/springboot"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">startSpringBoot</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Welcome to the world of Spring Boot!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动项目，在浏览器地址输入：<a href="http://localhost:8080/start/springboot，如果看到”Welcome" target="_blank" rel="noopener">http://localhost:8080/start/springboot，如果看到”Welcome</a> to the world of Spring Boot!“，那么springboot项目搭建成功。</p>
+</li>
+</ol>
+<h2 id="Springboot常用模块"><a href="#Springboot常用模块" class="headerlink" title="Springboot常用模块"></a>Springboot常用模块</h2><h3 id="Json数据及数据封装"><a href="#Json数据及数据封装" class="headerlink" title="Json数据及数据封装"></a>Json数据及数据封装</h3><p>​    在项目开发中，接口与接口之间，前后端之间的数据传输都使用json格式，springboot是如何返回json格式的数据。</p>
+<h4 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h4><p>​    <strong>@RestController</strong>注解即为<strong>@Controller</strong>与<strong>@ResponseBody</strong>注解的结合，使用@Controller 注解，在对应的方法上，视图解析器可以解析return 的jsp,html页面，并且跳转到相应页面。如果再加上@ResponseBody注解，return的内容就会以json格式返回。因此，@RestController即可以将返回的数据转换成json格式，在springboot中默认使用的json解析技术框架是Jackson。</p>
+<p>​    即@RestController返回的是json格式的数据，@Controller返回的是具体的页面，用了@RestController可以不用写@Controller。</p>
+<h4 id="封装统一返回的数据结构"><a href="#封装统一返回的数据结构" class="headerlink" title="封装统一返回的数据结构"></a>封装统一返回的数据结构</h4><p>​    在项目中，除了要封装的数据，我们往往需要在返回的json数据中加一些信息，例如返回的状态码，返回消息提示给调用者等等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonResult</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> T data;</span><br><span class="line">    <span class="keyword">private</span> String code;</span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 若没有数据返回，默认状态码为 0，提示信息为“操作成功！”</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JsonResult</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = <span class="string">"0"</span>;</span><br><span class="line">        <span class="keyword">this</span>.msg = <span class="string">"操作成功！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 若没有数据返回，可以人为指定状态码和提示信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> code</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> msg</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JsonResult</span><span class="params">(String code, String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 有数据返回时，状态码为 0，默认提示信息为“操作成功！”</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JsonResult</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">        <span class="keyword">this</span>.code = <span class="string">"0"</span>;</span><br><span class="line">        <span class="keyword">this</span>.msg = <span class="string">"操作成功！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 有数据返回，状态码为 0，人为指定提示信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> msg</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JsonResult</span><span class="params">(T data, String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">        <span class="keyword">this</span>.code = <span class="string">"0"</span>;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 省略 get 和 set 方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在controller中使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/jsonresult"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonResultController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> JsonResult&lt;User&gt; <span class="title">getUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User(<span class="number">1</span>, <span class="string">"lalala"</span>, <span class="string">"123456"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonResult&lt;&gt;(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0"</span>,<span class="string">"data"</span>:&#123;<span class="string">"id"</span>:<span class="number">1</span>,<span class="string">"password"</span>:<span class="string">"123456"</span>,<span class="string">"username"</span>:<span class="string">"lalala"</span>&#125;,<span class="string">"msg"</span>:<span class="string">"操作成功！"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="项目属性配置"><a href="#项目属性配置" class="headerlink" title="项目属性配置"></a>项目属性配置</h3><h4 id="单一服务的配置和调用"><a href="#单一服务的配置和调用" class="headerlink" title="单一服务的配置和调用"></a>单一服务的配置和调用</h4><p>​    在项目中，很多时候需要用到一些配置信息，不同的环境可能需要不同的配置，因此我们不应该将这些配置在代码中写死，而是写到配置文件中。</p>
+<p>​    举个例子，在微服务架构中，最常见的就是某个服务需要调用其他服务来获取其提供的相关信息，那么在该服务的配置文件中需要配置被调用服务的地址。比如在当前服务里，我们需要调用订单微服务获取订单相关的信息，假设订单服务的端口号是 8002，我们可以做如下配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">8001</span></span><br><span class="line"></span><br><span class="line"># 配置微服务的地址</span><br><span class="line">url:</span><br><span class="line">  # 订单微服务的地址</span><br><span class="line">  orderUrl: http:<span class="comment">//localhost:8002</span></span><br></pre></td></tr></table></figure>
+<p>​    那在业务代码中，如何获取到这个配置的订单服务地址呢？我们可以使用 @Value 注解来解决。在对应的类中加上一个属性，在属性上使用 @Value 注解即可获取到配置文件中的配置信息，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/test"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;url.orderUrl&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String orderUrl;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/config"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        LOGGER.info(<span class="string">"=====获取的订单服务地址为：&#123;&#125;"</span>, orderUrl);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    注：@Value住家上通过${key}即可获取配置文件中的key对应的value值。</p>
+<h4 id="多项服务的配置和调用"><a href="#多项服务的配置和调用" class="headerlink" title="多项服务的配置和调用"></a>多项服务的配置和调用</h4><p>​    随着业务负责度增加，一个项目可能有越来越多的微服务，因此一个个去使用@Value注解来引入相应的微服务地址，过于繁琐。所以，在实际项目中，<strong>遇到业务繁琐、逻辑复杂的情况，需要考虑封装一个或多个配置类</strong>。</p>
+<p>​    举个例子，假如在当前服务中，某个业务需要同时调用订单微服务、用户微服务和购物车微服务，分别获取订单、用户和购物车相关信息，然后对这些信息做一定的逻辑处理。那么在配置文件中，我们需要将这些微服务的地址都配置好：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 配置多个微服务的地址</span><br><span class="line">url:</span><br><span class="line">  # 订单微服务的地址</span><br><span class="line">  orderUrl: http:<span class="comment">//localhost:8002</span></span><br><span class="line">  # 用户微服务的地址</span><br><span class="line">  userUrl: http:<span class="comment">//localhost:8003</span></span><br><span class="line">  # 购物车微服务的地址</span><br><span class="line">  shoppingUrl: http:<span class="comment">//localhost:8004</span></span><br></pre></td></tr></table></figure>
+<p>​    也许实际业务中，远远不止这三个微服务，甚至十几个都有可能。对于这种情况，我们可以先定义一个 MicroServiceUrl 类来专门保存微服务的 URL，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"url"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MicroServiceUrl</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String orderUrl;</span><br><span class="line">    <span class="keyword">private</span> String userUrl;</span><br><span class="line">    <span class="keyword">private</span> String shoppingUrl;</span><br><span class="line">    <span class="comment">// 省去 get 和 set 方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    注：使用 @ConfigurationProperties 注解并使用 prefix 指定一个前缀，那么该类中的属性名就是配置中去掉前缀后的名字，一一对应即可，即前缀名 + 属性名就是配置文件中定义的 key。</p>
+<p>​    使用@ConfigurationProperties注解需要导入依赖：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;</span><br><span class="line">    &lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>​    到此为止，我们将配置写好了，接下来写个 Controller 测试一下。此时，不需要在代码中一个个引入这些微服务的 URL，直接通过 @Resource 注解将刚刚写好的配置类注入进来即可使用了，非常方便。如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/test"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOGGER = LoggerFactory.getLogger(TestController.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> MicroServiceUrl microServiceUrl;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/config"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        LOGGER.info(<span class="string">"=====获取的订单服务地址为：&#123;&#125;"</span>, microServiceUrl.getOrderUrl());</span><br><span class="line">        LOGGER.info(<span class="string">"=====获取的用户服务地址为：&#123;&#125;"</span>, microServiceUrl.getUserUrl());</span><br><span class="line">        LOGGER.info(<span class="string">"=====获取的购物车服务地址为：&#123;&#125;"</span>, microServiceUrl.getShoppingUrl());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="SpringBoot对MVC的支持"><a href="#SpringBoot对MVC的支持" class="headerlink" title="SpringBoot对MVC的支持"></a>SpringBoot对MVC的支持</h3><p>​    springmvc有许多注解，@RestController、 @RequestMapping、@PathVariable、@RequestParam 以及 @RequestBody等等，了解springboot对他们的使用以及特点。</p>
+<h4 id="RestController-1"><a href="#RestController-1" class="headerlink" title="@RestController"></a>@RestController</h4><p>​    @RestController注解包含了@Controller和@ResponseBody注解，@ResponseBody 是<strong>将返回的数据结构转换为 JSON 格式</strong>，所以 @RestController 可以看作是 @Controller 和 @ResponseBody 的结合体，相当于偷个懒，我们使用 @RestController 之后就不用再使用 @Controller 了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"user"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    注：使用@RestController还是使用@Controller，如果以上例子的user返回的是user.html，则使用@Controller，如果返回的user对象的数据，则使用@RestController。</p>
+<h4 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h4><p>​    @RequestMapping是一个用来<strong>处理请求地址映射</strong>的注解，可以用在类上，也可以用在方法上。该注解有 6 个属性，一般在项目中比较常用的有 3 个属性：value、method 和 produces。</p>
+<ul>
+<li>value 属性：指定请求的实际地址，value 可以省略不写。</li>
+<li>method 属性：指定请求的类型，主要有 GET、PUT、POST、DELETE，默认为 GET。</li>
+<li>produces 属性：指定返回内容类型，参与下面代码。</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/test"</span>, produces = <span class="string">"application/json; charset=UTF-8"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/get"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testGet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    在浏览器访问的地址为：htpp://localhost:8080/test/get</p>
+<p>​    <strong>四种不同的请求方式，都有相应的注解</strong>。不用每次在 @RequestMapping 注解中加 method 属性来指定，上面的 GET 方式请求可以直接使用 @GetMapping(“/get”) 注解，效果一样。相应地，PUT 方式、POST 方式和 DELETE 方式对应的注解分别为 @PutMapping、@PostMapping 和 DeleteMapping。</p>
+<h4 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h4><p>​    @PathVariable用于获取URL的参数，例子如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testPathVariable</span><span class="params">(@PathVariable Integer id)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"获取到的id为："</span> + id);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    注：url中的id要与参数id名一样，否则无法接收，如果id不一样需要使用value属性来应对，例子如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user/&#123;idd&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testPathVariable</span><span class="params">(@PathVariable(value = <span class="string">"idd"</span>)</span> Integer id) </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"获取到的id为："</span> + id);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    @PathVariable支持多个参数接收，只要url的占位名称与方法的变量名称一致，即可接收，例子如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;idd&#125;/&#123;name&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testPathVariable</span><span class="params">(@PathVariable(value = <span class="string">"idd"</span>)</span> Integer id, @PathVariable String name) </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"获取到的id为："</span> + id);</span><br><span class="line">        System.out.println(<span class="string">"获取到的name为："</span> + name);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h4><p>​    @RequestParam也用于获取请求参数，那么与@PathVariable有什么区别呢？</p>
+<p><strong>主要区别在于</strong>： @PathValiable 是从 URL 模板中获取参数值， 即这种风格的 URL：<a href="http://localhost:8080/user/{id}；而" target="_blank" rel="noopener">http://localhost:8080/user/{id}；而</a> @RequestParam 是从 Request 里获取参数值，即这种风格的 URL：<a href="http://localhost:8080/user?id=1。" target="_blank" rel="noopener">http://localhost:8080/user?id=1。</a></p>
+<p>​    @RequestParam比较常用的属性有，value、required、defaultValue。</p>
+<ul>
+<li>value：url的变量名与id名对应。</li>
+<li>required：有true和false，填true，则该参数为必传，如果没传该参数，会报404，如果填false，则参数可以为空。</li>
+<li>defaultValue：默认值，如果该参数没有传值，则会赋默认值。</li>
+</ul>
+<h3 id="全局异常处理"><a href="#全局异常处理" class="headerlink" title="全局异常处理"></a>全局异常处理</h3><p>​    在项目开发过程中，会有各种各样不可预知的异常需要处理。如果对每个过程都进行独立的异常处理，开发工作量十分巨大，而且不好统一。针对这种实际情况，我们需要将所有类型的异常处理从各处理过程解耦出来，这样既保证了相关处理过程的功能单一，也实现了异常信息的统一处理和维护。同时，我们也不希望直接把异常抛给用户，应该对异常进行处理，对错误信息进行封装，然后返回一个友好的信息给用户。</p>
+<ol>
+<li><p>定义返回的统一json结果</p>
+<p>前面提到过，不做赘述。</p>
+</li>
+<li><p>创建全局异常处理类GlobalExceptionHandler，加上@ControllerAdvice注解拦截异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalExceptionHandler</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ……</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：@ControllerAdvice注解有个basePackages属性，该属性用来拦截哪个包出现了异常，一般不指定，拦截项目工程中的所有异常。@ResponseBody用来返回json格式的数据。</p>
+</li>
+<li><p>处理异常（以参数缺失异常、空指针异常为例）</p>
+<p><strong>参数缺失异常：</strong>例如post请求需要携带一些参数，当漏掉参数的时候会出现异常，给前端一个友好的信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 缺少请求参数异常</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> ex HttpMessageNotReadableException</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@ExceptionHandler</span>(MissingServletRequestParameterException.class)</span><br><span class="line"><span class="meta">@ResponseStatus</span>(value = HttpStatus.BAD_REQUEST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> JsonResult <span class="title">handleHttpMessageNotReadableException</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    MissingServletRequestParameterException ex)</span> </span>&#123;</span><br><span class="line">    logger.error(<span class="string">"缺少请求参数，&#123;&#125;"</span>, ex.getMessage());</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> JsonResult(<span class="string">"400"</span>, <span class="string">"缺少必要的请求参数"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/exception"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(ExceptionController.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/test"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> JsonResult <span class="title">test</span><span class="params">(@RequestParam(<span class="string">"name"</span>)</span> String name,</span></span><br><span class="line"><span class="function">                           @<span class="title">RequestParam</span><span class="params">(<span class="string">"pass"</span>)</span> String pass) </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"name：&#123;&#125;"</span>, name);</span><br><span class="line">        logger.info(<span class="string">"pass：&#123;&#125;"</span>, pass);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonResult();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    当传输的时候漏掉参数，页面会显示{“code”:”400””msg”:”缺少必要的请求参数”}，这样就很简洁明了了。</p>
+<p><strong>空指针异常：</strong>有时候数据传输，在解析json的过程中，出现空内容，需要拦截异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalExceptionHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 空指针异常</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ex NullPointerException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(NullPointerException.class)</span><br><span class="line">    <span class="meta">@ResponseStatus</span>(value = HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> JsonResult <span class="title">handleTypeMismatchException</span><span class="params">(NullPointerException ex)</span> </span>&#123;</span><br><span class="line">        logger.error(<span class="string">"空指针异常，&#123;&#125;"</span>, ex.getMessage());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonResult(<span class="string">"500"</span>, <span class="string">"空指针异常了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试方法同上。</p>
+<p>​    在这里就出现了另外一个问题，异常种类非常的多，我们要一个个去写异常方法来获取异常吗？我们可以直接拦截Exception异常，因为所有异常都继承Exception。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalExceptionHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 系统异常 预期以外异常</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ex</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(Exception.class)</span><br><span class="line">    <span class="meta">@ResponseStatus</span>(value = HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> JsonResult <span class="title">handleUnexpectedServer</span><span class="params">(Exception ex)</span> </span>&#123;</span><br><span class="line">        logger.error(<span class="string">"系统异常："</span>, ex);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonResult(<span class="string">"500"</span>, <span class="string">"系统发生异常，请联系管理员"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="SpringBoot中的切面AOP处理"><a href="#SpringBoot中的切面AOP处理" class="headerlink" title="SpringBoot中的切面AOP处理"></a>SpringBoot中的切面AOP处理</h3><h4 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h4><p>​    AOP（Aspect Oriented Programming）意为“面向切面编程”。面向切面编程的目标就是分离关注点。什么是关注点呢？就是你要做的事情。假如你是一位公子哥，没啥人生目标，每天衣来伸手，饭来张口，整天只知道一件事：玩（这就是你的关注点，你只要做这一件事）。但有个问题，你在玩之前，你还需要起床、穿衣服、穿鞋子、叠被子、做早饭等，但是这些事情你不想关注，也不用关注，你只想玩，那么怎么办呢？</p>
+<p>​    对！这些事情通通交给下人去干。你有一个专门的仆人 A 帮你穿衣服，仆人 B 帮你穿鞋子，仆人 C 帮你叠好被子，仆人 D 帮你做饭，然后你就开始吃饭、去玩（这就是你一天的正事），你干完你的正事之后，回来，然后一系列仆人又开始帮你干这个干那个，然后一天就结束了。</p>
+<p>​    这就是 AOP。AOP 的好处就是你只需要干你的正事，其他事情别人帮你干。也许有一天，你想裸奔，不想穿衣服，那么你把仆人 A 解雇就是了。也许有一天，出门之前你还想带点钱，那么你再雇一个仆人 E 专门帮你干取钱的活。这就是 AOP，每个人各司其职，灵活组合，达到一种可配置的、可插拔的程序结构。</p>
+<h4 id="AOP的使用"><a href="#AOP的使用" class="headerlink" title="AOP的使用"></a>AOP的使用</h4><ol>
+<li><p>pom.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义AOP切面类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogAspectHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：在类上@Aspect注解，即该类为切面类。</p>
+</li>
+<li><p>常用注解</p>
+<p><strong>@Pointcut</strong>:定义一个切入点，即我要拦截的东西</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogAspectHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义一个切面，拦截 com.itcodai.course09.controller 包和子包下的所有方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(* com.itcodai.course09.controller..*.*(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pointCut</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>常用表达式：一个是使用 execution()。</p>
+<p>以 <code>execution(* com.itcodai.course09.controller..*.*(..)))</code> 表达式为例，语法如下：</p>
+<blockquote>
+<p>execution() 为表达式主体。</p>
+<p>第一个 <code>*</code> 号的位置：表示返回值类型，<code>*</code> 表示所有类型。</p>
+<p>包名：表示需要拦截的包名，后面的两个句点表示当前包和当前包的所有子包，在本例中指 com.itcodai.course09.controller 包、子包下所有类的方法。</p>
+<p>第二个 <code>*</code> 号的位置：表示类名，<code>*</code> 表示所有类。</p>
+<p><code>*(..)</code>：这个星号表示方法名，<code>*</code> 表示所有的方法，后面括弧里面表示方法的参数，两个句点表示任何参数。</p>
+</blockquote>
+<p><strong>@Before</strong>:在切面切入之前要执行的方法，可以做一些Log处理，信息统计等等，比如获取用户的请求 URL 以及用户的 IP 地址等等，这个在做个人站点的时候都能用得到，都是常用的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogAspectHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在上面定义的切面方法之前执行该方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> joinPoint jointPoint</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"pointCut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doBefore</span><span class="params">(JoinPoint joinPoint)</span> </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"====doBefore方法进入了===="</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取签名</span></span><br><span class="line">        Signature signature = joinPoint.getSignature();</span><br><span class="line">        <span class="comment">// 获取切入的包名</span></span><br><span class="line">        String declaringTypeName = signature.getDeclaringTypeName();</span><br><span class="line">        <span class="comment">// 获取即将执行的方法名</span></span><br><span class="line">        String funcName = signature.getName();</span><br><span class="line">        logger.info(<span class="string">"即将执行方法为: &#123;&#125;，属于&#123;&#125;包"</span>, funcName, declaringTypeName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 也可以用来记录一些信息，比如获取请求的 URL 和 IP</span></span><br><span class="line">        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();</span><br><span class="line">        HttpServletRequest request = attributes.getRequest();</span><br><span class="line">        <span class="comment">// 获取请求 URL</span></span><br><span class="line">        String url = request.getRequestURL().toString();</span><br><span class="line">        <span class="comment">// 获取请求 IP</span></span><br><span class="line">        String ip = request.getRemoteAddr();</span><br><span class="line">        logger.info(<span class="string">"用户请求的url为：&#123;&#125;，ip地址为：&#123;&#125;"</span>, url, ip);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>@After</strong>：注解即在切面切入之后执行的方法。</p>
+<p><strong>@AfterReturning</strong>：@AfterReturning 注解和 @After 有些类似，区别在于 @AfterReturning 注解可以用来捕获切入方法执行完之后的返回值，对返回值进行业务逻辑上的增强处理。</p>
+<p><strong>@AfterThrowing</strong>：在切面切入方法过程中，跑出异常的时候，会进入该方法，做一些异常的处理逻辑。</p>
+</li>
+</ol>
+<h3 id="SpringBoot继承Mybatis"><a href="#SpringBoot继承Mybatis" class="headerlink" title="SpringBoot继承Mybatis"></a>SpringBoot继承Mybatis</h3><p>​    mybatis都不陌生，直接看如何使用。</p>
+<ol>
+<li><p>pom.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;scope&gt;runtime&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>application.yml</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 服务端口号</span><br><span class="line">server:</span><br><span class="line">  port: <span class="number">8080</span></span><br><span class="line"></span><br><span class="line"># 数据库地址</span><br><span class="line">datasource:</span><br><span class="line">  url: localhost:<span class="number">3306</span>/xxxx</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  datasource: # 数据库配置</span><br><span class="line">    driver-class-name: com.mysql.jdbc.Driver</span><br><span class="line">    url: jdbc:mysql:<span class="comment">//$&#123;datasource.url&#125;?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10</span></span><br><span class="line">    username: root</span><br><span class="line">    password: xxxxx</span><br><span class="line">    hikari:</span><br><span class="line">      maximum-pool-size: 10 # 最大连接池数</span><br><span class="line">      max-lifetime: <span class="number">1770000</span></span><br><span class="line"></span><br><span class="line">mybatis:</span><br><span class="line">  # 指定别名设置的包为所有entity</span><br><span class="line">  type-aliases-<span class="keyword">package</span>: com.itcodai.course10.entity</span><br><span class="line">  configuration:</span><br><span class="line">    map-underscore-to-camel-case: true # 驼峰命名规范</span><br><span class="line">  mapper-locations: # mapper 映射文件位置</span><br><span class="line">    - classpath:mapper<span class="comment">/*.xml</span></span><br></pre></td></tr></table></figure>
+<p>注：Hikari为springboot自带的连接池。map-underscore-to-camel-case：true，它用来开启驼峰命名规范，比较好用，比如数据库中字段名为user_name，那么在实体类中定义名为userName的属性，甚至是用户名，都会自动匹配到驼峰属性。如果不这样配置，当字段名和属性名不同时，就无法实现映射。</p>
+</li>
+<li><p>Mapper.xml与Mapper.java同springmvc一样，不做分析。</p>
+</li>
+<li><p>SpringBoot找到Mapper</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@MapperScan</span>(<span class="string">"com.itcodai.course10.dao"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(TestApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：通过@MapperScan注解，可以扫描到括号里面的包下的所有mapper。</p>
+</li>
+</ol>
+<h3 id="SpringBoot事务配置"><a href="#SpringBoot事务配置" class="headerlink" title="SpringBoot事务配置"></a>SpringBoot事务配置</h3><p>​    在各种事物执行过程中，往往存在各种无法预知的问题，例如转账，只有整个流程执行完毕才认为相应的事件执行成功，若出现问题，则需要回滚。</p>
+<ol>
+<li><p>pom.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">isertUser</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 插入用户信息</span></span><br><span class="line">        userMapper.insertUser(user);</span><br><span class="line">        <span class="comment">// 手动抛出异常</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：与之前的类不同的是，inserUser的方法上多了一个@Transactional的注解，加上该注解即可开启事务，当插入出现异常，就会回滚该操作，查看数据库，并没有插入该记录。但是这边要注意，SpringBoot默认的事务规则是运行异常和程序错误才会回滚，比如上面例子中抛出的 RuntimeException，可完成回滚，而抛出 SQLException，则无法回滚。可以在 @Transactional 注解中使用 rollbackFor 属性指定异常，比如 @Transactional(rollbackFor = Exception.class)，可以解决该问题。</p>
+</li>
+</ol>
+<p>​    …………</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/04/延迟加载（懒加载）--单例模式/" rel="next" title="Java延迟加载（懒加载）—单例模式">
+                <i class="fa fa-chevron-left"></i> Java延迟加载（懒加载）—单例模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/21/maven了解及配置私库/" rel="prev" title="maven了解及配置私库">
+                maven了解及配置私库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Godf">
+            
+              <p class="site-author-name" itemprop="name">Godf</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5090153108" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hua00727" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot工程"><span class="nav-number">1.1.</span> <span class="nav-text">SpringBoot工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工程构建"><span class="nav-number">1.1.1.</span> <span class="nav-text">工程构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工程结构"><span class="nav-number">1.1.2.</span> <span class="nav-text">工程结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行工程"><span class="nav-number">1.2.</span> <span class="nav-text">运行工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Springboot常用模块"><span class="nav-number">1.3.</span> <span class="nav-text">Springboot常用模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Json数据及数据封装"><span class="nav-number">1.3.1.</span> <span class="nav-text">Json数据及数据封装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RestController"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">@RestController</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#封装统一返回的数据结构"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">封装统一返回的数据结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目属性配置"><span class="nav-number">1.3.2.</span> <span class="nav-text">项目属性配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单一服务的配置和调用"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">单一服务的配置和调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多项服务的配置和调用"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">多项服务的配置和调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBoot对MVC的支持"><span class="nav-number">1.3.3.</span> <span class="nav-text">SpringBoot对MVC的支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RestController-1"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">@RestController</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RequestMapping"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">@RequestMapping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PathVariable"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">@PathVariable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RequestParam"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">@RequestParam</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局异常处理"><span class="nav-number">1.3.4.</span> <span class="nav-text">全局异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBoot中的切面AOP处理"><span class="nav-number">1.3.5.</span> <span class="nav-text">SpringBoot中的切面AOP处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AOP"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AOP的使用"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">AOP的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBoot继承Mybatis"><span class="nav-number">1.3.6.</span> <span class="nav-text">SpringBoot继承Mybatis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBoot事务配置"><span class="nav-number">1.3.7.</span> <span class="nav-text">SpringBoot事务配置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Godf</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'mF5jLfnRnANq13IQ472GWiyA-gzGzoHsz',
+        appKey: 'PBUpAc5vnfo4P0grXdPuuH76',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("mF5jLfnRnANq13IQ472GWiyA-gzGzoHsz", "PBUpAc5vnfo4P0grXdPuuH76");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
