@@ -83,11 +83,11 @@
 <meta name="keywords" content="Spring Cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Cloud学习">
-<meta property="og:url" content="http://yoursite.com/2019/02/04/SpringCloud/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/04/SpringCloud学习/index.html">
 <meta property="og:site_name" content="英俊的人">
 <meta property="og:description" content="SpringCloud简介​    Spring Cloud是一系列框架的有序集合，它并不重复造轮子，而是将已经存在的，并且是比较完美的模块集成进去，进行封装，从而减少了各模块的开发成本。 ​    Spring Cloud主要用于微服务，如今微服务架构也是现代发展的一个趋势。微服务是将业务功能的服务拆开，每个服务都有自己的处理和通信机制，可以部署在单个或多个服务器上，比如修改一个服务的内容，其他">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-23T03:22:31.722Z">
+<meta property="og:updated_time" content="2019-02-23T08:07:28.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Cloud学习">
 <meta name="twitter:description" content="SpringCloud简介​    Spring Cloud是一系列框架的有序集合，它并不重复造轮子，而是将已经存在的，并且是比较完美的模块集成进去，进行封装，从而减少了各模块的开发成本。 ​    Spring Cloud主要用于微服务，如今微服务架构也是现代发展的一个趋势。微服务是将业务功能的服务拆开，每个服务都有自己的处理和通信机制，可以部署在单个或多个服务器上，比如修改一个服务的内容，其他">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/04/SpringCloud/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/04/SpringCloud学习/">
 
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/04/SpringCloud/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/04/SpringCloud学习/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Godf">
@@ -340,7 +340,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-23T11:22:31+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-23T16:07:28+08:00">
                 2019-02-23
               </time>
             
@@ -355,8 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/04/SpringCloud/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/04/SpringCloud/" itemprop="commentCount"></span>
+                <a href="/2019/02/04/SpringCloud学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/04/SpringCloud学习/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,7 +364,7 @@
 
           
           
-             <span id="/2019/02/04/SpringCloud/" class="leancloud_visitors" data-flag-title="Spring Cloud学习">
+             <span id="/2019/02/04/SpringCloud学习/" class="leancloud_visitors" data-flag-title="Spring Cloud学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -551,7 +551,7 @@
 <p>####各组件配置放入git（以eurekaclient的application.yml为例）</p>
 <ol>
 <li><p>pom.xml添加依赖</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-config-server&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建bootstrap.yml，并删除application.yml</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: eurekaclient</span><br><span class="line">  profiles:</span><br><span class="line">    active: dev</span><br><span class="line">  cloud:</span><br><span class="line">    config:</span><br><span class="line">      profile: dev #指定配置环境，配置文件如果是多环境则取名类似：config-dev.yml</span><br><span class="line">      name: eurekaclient #指定配置文件名字（多个配置文件以英文逗号隔开）</span><br><span class="line">      label: master #git仓库分支名</span><br><span class="line">      discovery:</span><br><span class="line">        enabled: <span class="keyword">true</span></span><br><span class="line">        service-id: config #连接的配置中心名字（applicaiton.name）</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http:<span class="comment">//localhost:8761/eureka/</span></span><br></pre></td></tr></table></figure>
@@ -737,8 +737,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/04/延迟加载（懒加载）--单例模式/" rel="next" title="Java延迟加载（懒加载）—单例模式">
-                <i class="fa fa-chevron-left"></i> Java延迟加载（懒加载）—单例模式
+              <a href="/2019/02/04/SpringCloud项目搭建/" rel="next" title="Spring Cloud项目搭建">
+                <i class="fa fa-chevron-left"></i> Spring Cloud项目搭建
               </a>
             
           </div>
@@ -747,8 +747,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/04/SpringCloud项目搭建/" rel="prev" title="Spring Cloud项目搭建">
-                Spring Cloud项目搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/04/SpringCloud问题记录/" rel="prev" title="Spring Cloud问题记录">
+                Spring Cloud问题记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
